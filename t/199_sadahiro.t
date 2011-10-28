@@ -20,4 +20,3 @@ else {
 
 __END__
 
-http://search.cpan.org/dist/Windows-1252-Regexp/
