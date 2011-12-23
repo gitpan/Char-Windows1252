@@ -234,5 +234,5 @@ See also code table:
 
 SEE ALSO
 
-perl, Sjis.pm
+perl, Windows1252.pm, Ewindows1252.pm, jacode.pl
 
