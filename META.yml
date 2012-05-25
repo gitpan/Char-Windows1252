@@ -1,7 +1,7 @@
 --- #YAML:1.0
 name: Windows1252
 abstract: Source code filter for Windows-1252 script
-version: 0.80
+version: 0.81
 author:
   - INABA Hitoshi <ina@cpan.org>
 license: perl
