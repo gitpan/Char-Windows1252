@@ -28,7 +28,7 @@ BEGIN {
 # (and so on)
 
 BEGIN { eval q{ use vars qw($VERSION) } }
-$VERSION = sprintf '%d.%02d', q$Revision: 0.87 $ =~ /(\d+)/xmsg;
+$VERSION = sprintf '%d.%02d', q$Revision: 0.88 $ =~ /(\d+)/xmsg;
 
 BEGIN {
     my $PERL5LIB = __FILE__;
@@ -401,7 +401,6 @@ sub Windows1252::rindex($$;$);
 # Character class
 #
 BEGIN { eval q{ use vars qw(
-    $anchor
     $dot
     $dot_s
     $eD
@@ -430,7 +429,7 @@ BEGIN { eval q{ use vars qw(
     $eb
     $eB
 ) } }
-${Ewindows1252::anchor}      = qr{\G(?:[\x00-\xFF])*?};
+
 ${Ewindows1252::dot}         = qr{(?:[^\x0A])};
 ${Ewindows1252::dot_s}       = qr{(?:[\x00-\xFF])};
 ${Ewindows1252::eD}          = qr{(?:[^0-9])};
@@ -466,6 +465,35 @@ ${Ewindows1252::not_word}    = qr{(?:[^\x30-\x39\x41-\x5A\x5F\x61-\x7A])};
 ${Ewindows1252::not_xdigit}  = qr{(?:[^\x30-\x39\x41-\x46\x61-\x66])};
 ${Ewindows1252::eb}          = qr{(?:\A(?=[0-9A-Z_a-z])|(?<=[\x00-\x2F\x40\x5B-\x5E\x60\x7B-\xFF])(?=[0-9A-Z_a-z])|(?<=[0-9A-Z_a-z])(?=[\x00-\x2F\x40\x5B-\x5E\x60\x7B-\xFF]|\z))};
 ${Ewindows1252::eB}          = qr{(?:(?<=[0-9A-Z_a-z])(?=[0-9A-Z_a-z])|(?<=[\x00-\x2F\x40\x5B-\x5E\x60\x7B-\xFF])(?=[\x00-\x2F\x40\x5B-\x5E\x60\x7B-\xFF]))};
+
+# avoid: Name "Ewindows1252::foo" used only once: possible typo at here.
+${Ewindows1252::dot}         = ${Ewindows1252::dot};
+${Ewindows1252::dot_s}       = ${Ewindows1252::dot_s};
+${Ewindows1252::eD}          = ${Ewindows1252::eD};
+${Ewindows1252::eS}          = ${Ewindows1252::eS};
+${Ewindows1252::eW}          = ${Ewindows1252::eW};
+${Ewindows1252::eH}          = ${Ewindows1252::eH};
+${Ewindows1252::eV}          = ${Ewindows1252::eV};
+${Ewindows1252::eR}          = ${Ewindows1252::eR};
+${Ewindows1252::eN}          = ${Ewindows1252::eN};
+${Ewindows1252::not_alnum}   = ${Ewindows1252::not_alnum};
+${Ewindows1252::not_alpha}   = ${Ewindows1252::not_alpha};
+${Ewindows1252::not_ascii}   = ${Ewindows1252::not_ascii};
+${Ewindows1252::not_blank}   = ${Ewindows1252::not_blank};
+${Ewindows1252::not_cntrl}   = ${Ewindows1252::not_cntrl};
+${Ewindows1252::not_digit}   = ${Ewindows1252::not_digit};
+${Ewindows1252::not_graph}   = ${Ewindows1252::not_graph};
+${Ewindows1252::not_lower}   = ${Ewindows1252::not_lower};
+${Ewindows1252::not_lower_i} = ${Ewindows1252::not_lower_i};
+${Ewindows1252::not_print}   = ${Ewindows1252::not_print};
+${Ewindows1252::not_punct}   = ${Ewindows1252::not_punct};
+${Ewindows1252::not_space}   = ${Ewindows1252::not_space};
+${Ewindows1252::not_upper}   = ${Ewindows1252::not_upper};
+${Ewindows1252::not_upper_i} = ${Ewindows1252::not_upper_i};
+${Ewindows1252::not_word}    = ${Ewindows1252::not_word};
+${Ewindows1252::not_xdigit}  = ${Ewindows1252::not_xdigit};
+${Ewindows1252::eb}          = ${Ewindows1252::eb};
+${Ewindows1252::eB}          = ${Ewindows1252::eB};
 
 #
 # Windows-1252 split

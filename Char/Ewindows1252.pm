@@ -28,7 +28,7 @@ BEGIN {
 # (and so on)
 
 BEGIN { eval q{ use vars qw($VERSION) } }
-$VERSION = sprintf '%d.%02d', q$Revision: 0.87 $ =~ /(\d+)/xmsg;
+$VERSION = sprintf '%d.%02d', q$Revision: 0.88 $ =~ /(\d+)/xmsg;
 
 BEGIN {
     my $PERL5LIB = __FILE__;
@@ -401,7 +401,6 @@ sub Char::Windows1252::rindex($$;$);
 # Character class
 #
 BEGIN { eval q{ use vars qw(
-    $anchor
     $dot
     $dot_s
     $eD
@@ -430,7 +429,7 @@ BEGIN { eval q{ use vars qw(
     $eb
     $eB
 ) } }
-${Char::Ewindows1252::anchor}      = qr{\G(?:[\x00-\xFF])*?};
+
 ${Char::Ewindows1252::dot}         = qr{(?:[^\x0A])};
 ${Char::Ewindows1252::dot_s}       = qr{(?:[\x00-\xFF])};
 ${Char::Ewindows1252::eD}          = qr{(?:[^0-9])};
@@ -466,6 +465,35 @@ ${Char::Ewindows1252::not_word}    = qr{(?:[^\x30-\x39\x41-\x5A\x5F\x61-\x7A])};
 ${Char::Ewindows1252::not_xdigit}  = qr{(?:[^\x30-\x39\x41-\x46\x61-\x66])};
 ${Char::Ewindows1252::eb}          = qr{(?:\A(?=[0-9A-Z_a-z])|(?<=[\x00-\x2F\x40\x5B-\x5E\x60\x7B-\xFF])(?=[0-9A-Z_a-z])|(?<=[0-9A-Z_a-z])(?=[\x00-\x2F\x40\x5B-\x5E\x60\x7B-\xFF]|\z))};
 ${Char::Ewindows1252::eB}          = qr{(?:(?<=[0-9A-Z_a-z])(?=[0-9A-Z_a-z])|(?<=[\x00-\x2F\x40\x5B-\x5E\x60\x7B-\xFF])(?=[\x00-\x2F\x40\x5B-\x5E\x60\x7B-\xFF]))};
+
+# avoid: Name "Char::Ewindows1252::foo" used only once: possible typo at here.
+${Char::Ewindows1252::dot}         = ${Char::Ewindows1252::dot};
+${Char::Ewindows1252::dot_s}       = ${Char::Ewindows1252::dot_s};
+${Char::Ewindows1252::eD}          = ${Char::Ewindows1252::eD};
+${Char::Ewindows1252::eS}          = ${Char::Ewindows1252::eS};
+${Char::Ewindows1252::eW}          = ${Char::Ewindows1252::eW};
+${Char::Ewindows1252::eH}          = ${Char::Ewindows1252::eH};
+${Char::Ewindows1252::eV}          = ${Char::Ewindows1252::eV};
+${Char::Ewindows1252::eR}          = ${Char::Ewindows1252::eR};
+${Char::Ewindows1252::eN}          = ${Char::Ewindows1252::eN};
+${Char::Ewindows1252::not_alnum}   = ${Char::Ewindows1252::not_alnum};
+${Char::Ewindows1252::not_alpha}   = ${Char::Ewindows1252::not_alpha};
+${Char::Ewindows1252::not_ascii}   = ${Char::Ewindows1252::not_ascii};
+${Char::Ewindows1252::not_blank}   = ${Char::Ewindows1252::not_blank};
+${Char::Ewindows1252::not_cntrl}   = ${Char::Ewindows1252::not_cntrl};
+${Char::Ewindows1252::not_digit}   = ${Char::Ewindows1252::not_digit};
+${Char::Ewindows1252::not_graph}   = ${Char::Ewindows1252::not_graph};
+${Char::Ewindows1252::not_lower}   = ${Char::Ewindows1252::not_lower};
+${Char::Ewindows1252::not_lower_i} = ${Char::Ewindows1252::not_lower_i};
+${Char::Ewindows1252::not_print}   = ${Char::Ewindows1252::not_print};
+${Char::Ewindows1252::not_punct}   = ${Char::Ewindows1252::not_punct};
+${Char::Ewindows1252::not_space}   = ${Char::Ewindows1252::not_space};
+${Char::Ewindows1252::not_upper}   = ${Char::Ewindows1252::not_upper};
+${Char::Ewindows1252::not_upper_i} = ${Char::Ewindows1252::not_upper_i};
+${Char::Ewindows1252::not_word}    = ${Char::Ewindows1252::not_word};
+${Char::Ewindows1252::not_xdigit}  = ${Char::Ewindows1252::not_xdigit};
+${Char::Ewindows1252::eb}          = ${Char::Ewindows1252::eb};
+${Char::Ewindows1252::eB}          = ${Char::Ewindows1252::eB};
 
 #
 # Windows-1252 split
