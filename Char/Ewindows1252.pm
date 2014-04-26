@@ -17,7 +17,7 @@ use 5.00503;    # Galapagos Consensus 1998 for primetools
 # (and so on)
 
 BEGIN { eval q{ use vars qw($VERSION) } }
-$VERSION = sprintf '%d.%02d', q$Revision: 0.95 $ =~ /(\d+)/xmsg;
+$VERSION = sprintf '%d.%02d', q$Revision: 0.96 $ =~ /(\d+)/xmsg;
 
 BEGIN {
     if ($^X =~ / jperl /oxmsi) {
@@ -1956,6 +1956,9 @@ sub charlist_qr {
                         }
                     }
                 }
+                if ($_ ne '') {
+                    $singleoctet_ignorecase{unpack 'C*', $_} = 1;
+                }
             }
             my $i = 0;
             my @singleoctet_ignorecase = ();
@@ -2030,6 +2033,9 @@ sub charlist_not_qr {
                         }
                     }
                 }
+            }
+            if ($_ ne '') {
+                $singleoctet_ignorecase{unpack 'C*', $_} = 1;
             }
         }
         my $i = 0;
@@ -2434,6 +2440,12 @@ OUTER:
         my $pattern = '';
         while ($expr =~ / \G ($q_char) /oxgc) {
             my $char = $1;
+
+            # 6.9. Matching Shell Globs as Regular Expressions
+            # in Chapter 6. Pattern Matching
+            # of ISBN 0-596-00313-7 Perl Cookbook, 2nd Edition.
+            # (and so on)
+
             if ($char eq '*') {
                 $pattern .= "(?:$your_char)*",
             }
@@ -3338,13 +3350,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
   @ignorecase = Char::Ewindows1252::ignorecase(@string);
 
-  This subroutine is internal use to m/ /i, s/ / /i, split / /i and qr/ /i.
+  This subroutine is internal use to m/ /i, s/ / /i, split / /i, and qr/ /i.
 
 =item Make capture number
 
   $capturenumber = Char::Ewindows1252::capture($string);
 
-  This subroutine is internal use to m/ /, s/ / /, split / / and qr/ /.
+  This subroutine is internal use to m/ /, s/ / /, split / /, and qr/ /.
 
 =item Make character
 
