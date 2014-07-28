@@ -3,7 +3,7 @@ package Char::Ewindows1252;
 #
 # Char::Ewindows1252 - Run-time routines for Char/Windows1252.pm
 #
-# http://search.cpan.org/dist/Char-Char::Windows1252/
+# http://search.cpan.org/dist/Char-Windows1252/
 #
 # Copyright (c) 2008, 2009, 2010, 2011, 2012, 2013, 2014 INABA Hitoshi <ina@cpan.org>
 ######################################################################
@@ -17,7 +17,7 @@ use 5.00503;    # Galapagos Consensus 1998 for primetools
 # (and so on)
 
 BEGIN { eval q{ use vars qw($VERSION) } }
-$VERSION = sprintf '%d.%02d', q$Revision: 0.96 $ =~ /(\d+)/xmsg;
+$VERSION = sprintf '%d.%02d', q$Revision: 0.97 $ =~ /(\d+)/xmsg;
 
 BEGIN {
     if ($^X =~ / jperl /oxmsi) {
